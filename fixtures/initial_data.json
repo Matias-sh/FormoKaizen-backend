@@ -1,0 +1,142 @@
+[
+{
+    "model": "categories.category",
+    "pk": 1,
+    "fields": {
+        "name": "Electrónicos",
+        "description": "Equipos y componentes electrónicos de la oficina de ingeniería",
+        "color": "#2196F3",
+        "icon": "electronics",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z",
+        "updated_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.category",
+    "pk": 2,
+    "fields": {
+        "name": "Oficina",
+        "description": "Espacios de oficina y áreas administrativas",
+        "color": "#4CAF50",
+        "icon": "office",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z",
+        "updated_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.category",
+    "pk": 3,
+    "fields": {
+        "name": "Soldadura",
+        "description": "Estación de soldadura y equipos de manufactura",
+        "color": "#FF9800",
+        "icon": "welding",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z",
+        "updated_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.category",
+    "pk": 4,
+    "fields": {
+        "name": "Laboratorio",
+        "description": "Equipos de laboratorio y área de pruebas",
+        "color": "#9C27B0",
+        "icon": "science",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z",
+        "updated_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.workarea",
+    "pk": 1,
+    "fields": {
+        "name": "Banco de Pruebas",
+        "category": 1,
+        "description": "Área destinada a pruebas de componentes electrónicos",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.workarea",
+    "pk": 2,
+    "fields": {
+        "name": "Almacén de Componentes",
+        "category": 1,
+        "description": "Almacenamiento y organización de componentes electrónicos",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.workarea",
+    "pk": 3,
+    "fields": {
+        "name": "Área Administrativa",
+        "category": 2,
+        "description": "Escritorios y espacios de trabajo administrativo",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.workarea",
+    "pk": 4,
+    "fields": {
+        "name": "Sala de Reuniones",
+        "category": 2,
+        "description": "Espacio para reuniones y presentaciones",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.workarea",
+    "pk": 5,
+    "fields": {
+        "name": "Estación Principal",
+        "category": 3,
+        "description": "Estación principal de soldadura con equipos especializados",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.workarea",
+    "pk": 6,
+    "fields": {
+        "name": "Área de Preparación",
+        "category": 3,
+        "description": "Área para preparación de materiales y componentes",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.workarea",
+    "pk": 7,
+    "fields": {
+        "name": "Banco de Medición",
+        "category": 4,
+        "description": "Equipos de medición y calibración",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z"
+    }
+},
+{
+    "model": "categories.workarea",
+    "pk": 8,
+    "fields": {
+        "name": "Área de Calibración",
+        "category": 4,
+        "description": "Zona especializada para calibración de instrumentos",
+        "is_active": true,
+        "created_at": "2024-01-01T10:00:00Z"
+    }
+}
+]

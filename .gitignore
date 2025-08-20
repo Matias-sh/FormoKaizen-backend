@@ -1,0 +1,106 @@
+# ==========================
+# ENTORNOS VIRTUALES
+# ==========================
+venv/
+env/
+
+# ==========================
+# ARCHIVOS DE CONFIGURACIÓN SENSIBLES
+# ==========================
+.env
+.env.*
+!.env.example
+
+# ==========================
+# ARCHIVOS DE DJANGO
+# ==========================
+*.log
+*.pot
+*.pyc
+*.pyo
+__pycache__/
+db.sqlite3
+
+# ==========================
+# MIGRACIONES
+# ==========================
+*/migrations/__pycache__/
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# ==========================
+# ARCHIVOS DE IDEs
+# ==========================
+.idea/
+.vscode/
+
+# ==========================
+# ARCHIVOS DE COMPOSER / DOCKER
+# ==========================
+docker-compose.override.yml
+*.pid
+
+# ==========================
+# ARCHIVOS DE DOCUMENTACIÓN
+# ==========================
+*.md
+!.README.md
+
+# ==========================
+# ARCHIVOS DE SISTEMA
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# ARCHIVOS DE COMPILACIÓN / CACHE
+# ==========================
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# ==========================
+# OTROS ARCHIVOS ESPECÍFICOS
+# ==========================
+*.sqlite3-journal
+*.log*
+*.bak
+*.swp
+*.swo
+*.tmp
+
+# ==========================
+# ARCHIVOS DE DEPENDENCIAS
+# ==========================
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg
+*.egg-info/
+dist/
+build/
+develop-eggs/
+.eggs/
+
+# ==========================
+# ARCHIVOS DE TESTING
+# ==========================
+.coverage
+htmlcov/
+.tox/
+pytest_cache/
+.coverage.*
+
+# ==========================
+# DOCKER
+# ==========================
+*.pid
+*.seed
+*.pid.lock
+
+# ==========================
+# ARCHIVOS DE BACKUPS
+# ==========================
+*.orig
+*.rej

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python manage.py:*)",
+      "Bash(.venvScriptsactivate)",
+      "Bash(venvScriptsactivate.bat)",
+      "Bash(source:*)",
+      "Bash(venv/Scripts/python.exe -m pip install:*)",
+      "Bash(venv/Scripts/python.exe manage.py makemigrations:*)",
+      "Bash(venv/Scripts/python.exe manage.py migrate:*)",
+      "Bash(venv/Scripts/python.exe manage.py runserver 0.0.0.0:8000)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
