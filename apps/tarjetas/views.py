@@ -16,7 +16,7 @@ from .serializers import (
 def tarjetas_list(request):
     if request.method == 'GET':
         queryset = TarjetaRoja.objects.filter(is_active=True).select_related(
-            'created_by', 'assigned_to', 'approved_by'
+            'created_by', 'assigned_to', 'approved_by', 'category', 'work_area'
         )
         
         # Filtros
@@ -98,7 +98,7 @@ def tarjetas_list(request):
 def tarjeta_detail(request, pk):
     try:
         tarjeta = TarjetaRoja.objects.select_related(
-            'created_by', 'assigned_to', 'approved_by'
+            'created_by', 'assigned_to', 'approved_by', 'category', 'work_area'
         ).prefetch_related(
             'images', 'comments__user', 'history__user'
         ).get(pk=pk, is_active=True)

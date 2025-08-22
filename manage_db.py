@@ -170,30 +170,34 @@ def load_sample_data():
     if created_categories and created_users:
         sample_tarjetas = [
             {
-                'title': 'Problema de ventilación en estación de soldadura',
-                'description': 'El sistema de extracción de humos no está funcionando correctamente',
+                'numero': 'TR-001',
+                'descripcion': 'Problema de ventilación en estación de soldadura - El sistema de extracción de humos no está funcionando correctamente',
                 'category': next(c for c in created_categories if c.name == 'Soldadura'),
                 'priority': 'high',
                 'status': 'open',
-                'motivo': 'Falta de mantenimiento del sistema de ventilación',
+                'razon_motivo': 'Falta de mantenimiento del sistema de ventilación',
                 'destino_final': 'Revisar y limpiar los filtros del sistema de extracción',
+                'sector': 'Soldadura',
+                'quien_lo_hizo': 'Carlos Rodríguez',
                 'created_by': created_users[2] if len(created_users) > 2 else created_users[0]
             },
             {
-                'title': 'Componentes defectuosos en lote de resistencias',
-                'description': 'Se encontraron múltiples resistencias con valores fuera de especificación',
+                'numero': 'TR-002',
+                'descripcion': 'Componentes defectuosos en lote de resistencias - Se encontraron múltiples resistencias con valores fuera de especificación',
                 'category': next(c for c in created_categories if c.name == 'Electrónicos'),
                 'priority': 'medium',
                 'status': 'in_progress',
-                'motivo': 'Posible problema en el lote del proveedor',
+                'razon_motivo': 'Posible problema en el lote del proveedor',
                 'destino_final': 'Contactar al proveedor y establecer controles adicionales',
+                'sector': 'Electrónicos',
+                'quien_lo_hizo': 'María García',
                 'created_by': created_users[1] if len(created_users) > 1 else created_users[0]
             }
         ]
         
         for tarjeta_data in sample_tarjetas:
             TarjetaRoja.objects.get_or_create(
-                title=tarjeta_data['title'],
+                numero=tarjeta_data['numero'],
                 defaults=tarjeta_data
             )
     

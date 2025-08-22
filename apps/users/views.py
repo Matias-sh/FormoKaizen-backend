@@ -3,6 +3,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from django.contrib.auth import authenticate
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
@@ -112,3 +113,44 @@ def users_list(request):
     users = User.objects.filter(is_active=True).order_by('first_name', 'last_name')
     serializer = UserSerializer(users, many=True)
     return Response(serializer.data)
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def refresh_token(request):
+    refresh_token = request.data.get('refresh')
+    
+    if not refresh_token:
+        return Response({
+            'error': 'Refresh token es requerido'
+        }, status=status.HTTP_400_BAD_REQUEST)
+    
+    try:
+        refresh = RefreshToken(refresh_token)
+        access_token = refresh.access_token
+        
+        return Response({
+            'access': str(access_token)
+        })
+    
+    except (TokenError, InvalidToken):
+        return Response({
+            'error': 'Token inválido o expirado'
+        }, status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def logout(request):
+    try:
+        refresh_token = request.data.get('refresh')
+        if refresh_token:
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+        
+        return Response({
+            'message': 'Sesión cerrada exitosamente'
+        })
+    
+    except (TokenError, InvalidToken):
+        return Response({
+            'error': 'Token inválido'
+        }, status=status.HTTP_400_BAD_REQUEST)

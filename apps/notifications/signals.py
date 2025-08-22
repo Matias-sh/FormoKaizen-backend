@@ -16,8 +16,8 @@ def create_tarjeta_notifications(sender, instance, created, **kwargs):
                 recipient=supervisor,
                 sender=instance.created_by,
                 notification_type='tarjeta_created',
-                title=f'Nueva Tarjeta Roja: {instance.title}',
-                message=f'{instance.created_by.full_name} ha creado una nueva tarjeta roja en {instance.category.name}',
+                title=f'Nueva Tarjeta Roja: {instance.code}',
+                message=f'{instance.created_by.full_name} ha creado una nueva tarjeta roja: {instance.descripcion[:50]}{"..." if len(instance.descripcion) > 50 else ""}',
                 content_object=instance,
                 priority='normal' if instance.priority == 'low' else 'high'
             )
@@ -35,7 +35,7 @@ def create_tarjeta_notifications(sender, instance, created, **kwargs):
                         recipient=instance.created_by,
                         sender=instance.approved_by,
                         notification_type='tarjeta_approved',
-                        title=f'Tarjeta Aprobada: {instance.title}',
+                        title=f'Tarjeta Aprobada: {instance.code}',
                         message=f'Tu tarjeta roja ha sido aprobada por {instance.approved_by.full_name}',
                         content_object=instance,
                         priority='normal'
@@ -46,7 +46,7 @@ def create_tarjeta_notifications(sender, instance, created, **kwargs):
                     Notification.objects.create(
                         recipient=instance.created_by,
                         notification_type='tarjeta_rejected',
-                        title=f'Tarjeta Rechazada: {instance.title}',
+                        title=f'Tarjeta Rechazada: {instance.code}',
                         message=f'Tu tarjeta roja ha sido rechazada. Por favor revisa los comentarios.',
                         content_object=instance,
                         priority='high'
@@ -59,8 +59,8 @@ def create_tarjeta_notifications(sender, instance, created, **kwargs):
                         recipient=instance.assigned_to,
                         sender=instance.created_by,
                         notification_type='tarjeta_assigned',
-                        title=f'Tarjeta Asignada: {instance.title}',
-                        message=f'Te han asignado una tarjeta roja en {instance.category.name}',
+                        title=f'Tarjeta Asignada: {instance.code}',
+                        message=f'Te han asignado una tarjeta roja: {instance.descripcion[:50]}{"..." if len(instance.descripcion) > 50 else ""}',
                         content_object=instance,
                         priority='high' if instance.priority in ['high', 'critical'] else 'normal'
                     )

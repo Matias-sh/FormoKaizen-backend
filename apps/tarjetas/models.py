@@ -33,6 +33,14 @@ class TarjetaRoja(models.Model):
     fecha_final = models.DateField(null=True, blank=True, verbose_name='Fecha final (Opcional)')
     priority = models.CharField(max_length=20, choices=PRIORITY_CHOICES, default='medium', verbose_name='Prioridad')
     
+    # Categoría y área de trabajo
+    category = models.ForeignKey('categories.Category', on_delete=models.SET_NULL, 
+                                null=True, blank=True, related_name='tarjetas',
+                                verbose_name='Categoría')
+    work_area = models.ForeignKey('categories.WorkArea', on_delete=models.SET_NULL,
+                                 null=True, blank=True, related_name='tarjetas',
+                                 verbose_name='Área de trabajo')
+    
     # Estados y control
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='open')
     
